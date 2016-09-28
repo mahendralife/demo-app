@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demo">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test Demo with high chart</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link href="css/custom.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  </head>
+  <body class="isActive" ng-controller="formApp">
+    <!--graph and view data -->
+    <div class="graphview">
+      <div class="content">
+
+
+      <button  class="btn-circle left"> <i class="glyphicon glyphicon-arrow-left"></i> </button>
+      <button  class="btn-circle right"> <i class="glyphicon glyphicon-remove"></i> </button>
+
+        <div class="graph">
+          	<div id="my-chart" ></div>
+          <ul class="list">
+            <li ng-repeat="x in graph.months track by $index"> {{x}} </li>
+          </ul>
+
+          <ul class="list header-title">
+            <li ng-repeat="x in graph.info track by $index" ng-class="{'last':$last}"> <span>{{x.title}}</span><b>{{x.view}}</b> </li>
+          </ul>
+
+          <ul class="list graph-list">
+            <li ng-repeat="x in graph.percentage track by $index">
+                <span  data="x" ng-if="x" id="chart{{$index}}"></span>
+              {{x}}</li>
+          </ul>
+
+        </div>
+        </div>
+    </div>
+    <!--form -->
+    <div class="col-sm-4 col-sm-offset-4 " style="margin-top:50px;">
+
+        <form name="form" novalidate  autocomplete="off">
+            <!--number -1-->
+            <div class="form-group" ng-class="{'has-error':form.text1.$invalid && form.text1.$dirty}">
+                <label for="text1">Enter your number between 1 to 100</label>
+                <input type="number"
+                placeholder="Enter your number"
+                class="form-control"
+                name="text1"  ng-model="data.text1"   min="0" max="100"  required />
+                <!--error template-->
+              <div ng-messages="form.text1.$error"  role="alert" class="error">
+                <i class="glyphicon glyphicon-warning-sign"></i>
+                <div ng-message="required">Number is required</div>
+               <div ng-message="min">Enter number between 0 to 100</div>
+               <div ng-message="max">Enter number between 0 to 100</div>
+
+             </div>
+            </div>
+
+            <div class="form-group" ng-class="{'has-error':form.text2.$invalid && form.text2.$dirty}">
+                <label for="text2">Enter your number between 1 to 100</label>
+                <input type="number" name="text2" class="form-control"  ng-model="data.text2" id="text2"  min="0" max="100"  required placeholder="Enter your number "/>
+                <!--error template-->
+              <div ng-messages="form.text2.$error"  role="alert" class="error">
+                <i class="glyphicon glyphicon-warning-sign"></i>
+                <div ng-message="required">Number is required</div>
+               <div ng-message="min">Enter number between 0 to 100</div>
+               <div ng-message="max">Enter number between 0 to 100</div>
+
+             </div>
+            </div>
+
+            <div class="form-group" ng-class="{'has-error':form.text3.$invalid && form.text3.$dirty}">
+                <label for="text3">Enter your number between 1 to 100</label>
+                <input type="number" name="text3" class="form-control"  ng-model="data.text3" id="text3"  min="0" max="100"  required placeholder="Enter your number "/>
+
+                <!--error template-->
+              <div ng-messages="form.text3.$error"  role="alert" class="error">
+                <i class="glyphicon glyphicon-warning-sign"></i>
+                <div ng-message="required">Number is required</div>
+               <div ng-message="min">Enter number between 0 to 100</div>
+               <div ng-message="max">Enter number between 0 to 100</div>
+
+             </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" ng-click="submitForm(form,data)" class="btn btn-primary center-block" >Generate your  Graph </button>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+    <!--chart API hight charts-->
+    <script src="http://viralpeeps.com/assets/81cb3ef/jquery.js"></script>
+      <script src="//code.highcharts.com/highcharts.js"></script>
+      <script src="//code.highcharts.com/highcharts-more.js"></script>
+      <script src="//code.highcharts.com/modules/solid-gauge.js"></script>
+
+    <script src="app/app.js"></script>
+
+  </body>
+</html>
