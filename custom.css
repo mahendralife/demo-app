@@ -1,0 +1,42 @@
+label{ font-weight: 500; font-size: 12px;}
+.form-control { border-radius: 0;    height: 40px; }
+.form-group { position: relative;}
+.form-group::before{ content: ' '; position: absolute; background-color: white; height: 36px; width: 32px; right: 1px; top: 27px;}
+.error{position: absolute;color: #dc3030;   right: 0; display: none;    font-size: 13px;}
+.error i{    position: absolute;
+    right: 10px;
+    top: -30px;
+    z-index: 5;
+    font-size: 19px;}
+
+.form-group.has-error .error { display: block;}
+.btn { margin-top: 30px;}
+
+.graphview { position: fixed; height: 100%; width: 100%; background-color: rgba(255,255,255,0.98);  z-index: 1; overflow: auto;}
+body.isActive { overflow: hidden;}
+
+.btn-circle {       border-radius: 100%;
+    border: 0;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 16px;
+    outline: transparent;
+    line-height: 30px;
+    color: #656565;}
+.btn-circle.left{ left: 15px;}
+.btn-circle.right{right: 15px;}
+.btn-circle:hover {      background-color: #d0cfcf;}
+.content { max-width: 1124px; width: 98%; margin: auto; position: relative; padding-top: 70px;}
+.graph { background-color: #b9dae3; border-radius: 3px;}
+.list , li{ margin: 0; padding: 0; text-align: center;}
+
+.list li {   padding: 20px;  display: table-cell;    width: 1%; font-weight: 500;    text-transform: capitalize;}
+
+.header-title li span  { display: block; color: white;}
+
+.header-title li b { display: block; color: white;}
+
+.header-title li:first-child{ background-color:#72d3fe;}
+.header-title li { background-color:#45b7af;}
+.header-title li.last { background-color:#ffc66c;}
