@@ -15,7 +15,6 @@
     <div class="graphview">
       <div class="content">
 
-
       <button  class="btn-circle left"> <i class="glyphicon glyphicon-arrow-left"></i> </button>
       <button  class="btn-circle right"> <i class="glyphicon glyphicon-remove"></i> </button>
 
@@ -29,10 +28,11 @@
             <li ng-repeat="x in graph.info track by $index" ng-class="{'last':$last}"> <span>{{x.title}}</span><b>{{x.view}}</b> </li>
           </ul>
 
-          <ul class="list graph-list">
+          <ul class="graph-list">
             <li ng-repeat="x in graph.percentage track by $index">
-                <span  data="x" ng-if="x" id="chart{{$index}}"></span>
-              {{x}}</li>
+                <span>{{x}}</span>
+              <hc-chart  data="x" color="color[$index]"></hc-chart>
+              </li>
           </ul>
 
         </div>
@@ -96,7 +96,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
     <!--chart API hight charts-->
-    <script src="http://viralpeeps.com/assets/81cb3ef/jquery.js"></script>
+
       <script src="//code.highcharts.com/highcharts.js"></script>
       <script src="//code.highcharts.com/highcharts-more.js"></script>
       <script src="//code.highcharts.com/modules/solid-gauge.js"></script>
